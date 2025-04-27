@@ -35,7 +35,7 @@ const HeroSection = () => {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="font-display text-zentex-accent uppercase text-sm md:text-base tracking-[0.2em] mb-3 animate-pulse"
+            className="font-display text-zentex-gray-300 uppercase text-sm md:text-base tracking-[0.2em] mb-3"
           >
             Elite Security Services
           </motion.h2>
@@ -45,11 +45,11 @@ const HeroSection = () => {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-zentex-white"
           >
             PROFESSIONAL ACCOUNT
             <br />
-            <span className="bg-gradient-to-r from-zentex-white via-zentex-accent to-zentex-white bg-clip-text text-transparent animate-text-shimmer">
+            <span className="bg-gradient-to-r from-zentex-white via-zentex-gray-300 to-zentex-white bg-clip-text text-transparent">
               MANAGEMENT SERVICES
             </span>
           </motion.h1>
@@ -75,7 +75,7 @@ const HeroSection = () => {
               href="#services"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-zentex-accent text-zentex-white font-medium rounded hover:bg-zentex-accent/80 transition-all duration-300 shadow-lg shadow-zentex-accent/20 font-display tracking-wider"
+              className="px-8 py-3 bg-zentex-gray-700 text-zentex-white font-medium rounded hover:bg-zentex-gray-600 transition-all duration-300 shadow-lg shadow-zentex-black/20 font-display tracking-wider"
             >
               View Services
             </motion.a>
@@ -84,7 +84,7 @@ const HeroSection = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 border border-zentex-accent text-zentex-white font-medium rounded hover:bg-zentex-accent/10 transition-all duration-300 animate-border-flash font-display tracking-wider"
+              className="px-8 py-3 border border-zentex-gray-700 text-zentex-white font-medium rounded hover:bg-zentex-gray-700/10 transition-all duration-300 font-display tracking-wider"
             >
               Contact Now
             </motion.a>
