@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import SectionTransition from "../common/SectionTransition";
+import { type CarouselApi } from "embla-carousel-react";
 
 const testimonials = [
   {
@@ -91,6 +92,20 @@ const TestimonialCard = ({ testimonial, isActive }: { testimonial: any, isActive
 
 const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  
+  useEffect(() => {
+    if (!carouselApi) return;
+    
+    const onSelect = () => {
+      setActiveIndex(carouselApi.selectedScrollSnap());
+    };
+    
+    carouselApi.on("select", onSelect);
+    return () => {
+      carouselApi.off("select", onSelect);
+    };
+  }, [carouselApi]);
 
   return (
     <SectionTransition id="testimonials" className="py-20 md:py-32 bg-zentex-black relative">
@@ -113,7 +128,7 @@ const TestimonialsSection = () => {
           <Carousel
             opts={{ align: "center" }}
             className="w-full"
-            onSelect={(api) => setActiveIndex(api?.selectedScrollSnap() || 0)}
+            setApi={setCarouselApi}
           >
             <CarouselContent className="-ml-4">
               {testimonials.map((testimonial, index) => (
@@ -142,7 +157,7 @@ const TestimonialsSection = () => {
               className={`w-3 h-3 rounded-full transition-all ${
                 index === activeIndex ? "bg-zentex-accent w-6" : "bg-zentex-gray-700"
               }`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => carouselApi?.scrollTo(index)}
             />
           ))}
         </div>

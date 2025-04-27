@@ -11,7 +11,7 @@ import {
   Float
 } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
-import { Group, Mesh } from "three";
+import { Group, Mesh, MeshBasicMaterial } from "three";
 import * as THREE from "three";
 
 // A floating sphere mesh with distortion
@@ -57,7 +57,7 @@ const AnimatedSphere = ({ position, radius, color, speed, offset }: any) => {
 // Animated grid with glow effect
 const AnimatedGrid = () => {
   const gridRef = useRef<THREE.Group>(null!);
-  const gridMaterial = useRef<THREE.Material>(null!);
+  const gridMaterial = useRef<MeshBasicMaterial>(null!);
   
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -65,7 +65,6 @@ const AnimatedGrid = () => {
     gridRef.current.rotation.z = Math.sin(t / 20) / 30;
     
     if (gridMaterial.current) {
-      // @ts-ignore
       gridMaterial.current.opacity = 0.3 + Math.sin(t / 2) * 0.1;
     }
   });
