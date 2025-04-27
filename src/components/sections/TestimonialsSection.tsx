@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -7,9 +6,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi
 } from "@/components/ui/carousel";
 import SectionTransition from "../common/SectionTransition";
-import { type CarouselApi } from "embla-carousel-react";
 
 const testimonials = [
   {
