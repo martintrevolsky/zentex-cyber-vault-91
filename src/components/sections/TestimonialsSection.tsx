@@ -6,38 +6,42 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi
 } from "@/components/ui/carousel";
+import { type CarouselApi } from "@/components/ui/carousel";
 import SectionTransition from "../common/SectionTransition";
 
 const testimonials = [
   {
-    name: "David K.",
-    role: "Business Owner",
-    content: "After my business Instagram account was banned, I tried everything with no success. Zentex was able to recover it within 48 hours. Absolutely worth every penny!",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    platform: "Instagram"
+    name: "Anonymous Client",
+    role: "Privacy Protection Case",
+    content: "This guy literally banned the account that leaked my personal information. Have all the blessings in the world young guy, thank you so much for saving me. If you hadn't taken them down, my privacy would have been compromised all over the internet.",
+    avatar: "/lovable-uploads/79fc5e67-9142-4283-abc7-7f97e05718d1.png",
+    platform: "Telegram @stwags",
+    verified: true
   },
   {
-    name: "Sarah M.",
-    role: "Content Creator",
-    content: "I couldn't believe how quickly Zentex restored my account after being wrongfully banned. Their service is incredibly professional and effective.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    platform: "Facebook"
+    name: "Trusted MM",
+    role: "Long-term Client",
+    content: "Vouch @Zentexups - MM'd $25k+ total, quick and easy transactions every time!",
+    avatar: "/lovable-uploads/1eacc8c3-5d38-4549-95cf-c0dd48aa8d9f.png",
+    platform: "Telegram @stwags",
+    verified: true
   },
   {
-    name: "Michael R.",
-    role: "E-commerce Manager",
-    content: "When our company page with 500K followers was compromised, we were desperate. Zentex not only recovered our account but also helped improve our security.",
-    avatar: "https://randomuser.me/api/portraits/men/22.jpg",
-    platform: "Instagram"
+    name: "Business Partner",
+    role: "1+ Year Collaboration",
+    content: "Been working with @ZentexUp from more than a year, never disappoints. Multiple successful bans, unbans, and adbot services. Sweet and honest guy. Highly recommend. ⚡️",
+    avatar: "/lovable-uploads/79fc5e67-9142-4283-abc7-7f97e05718d1.png",
+    platform: "Telegram @stwags",
+    verified: true
   },
   {
-    name: "Jessica T.",
-    role: "Influencer",
-    content: "I was skeptical at first, but Zentex proved me wrong. My account was back within days, and their customer service was exceptional throughout the process.",
-    avatar: "https://randomuser.me/api/portraits/women/29.jpg",
-    platform: "Facebook"
+    name: "VIP Client",
+    role: "Celebrity Account Case",
+    content: "Fast celebrity account unban after 4 people had failed before. Simply the best in the business!",
+    avatar: "/lovable-uploads/1eacc8c3-5d38-4549-95cf-c0dd48aa8d9f.png",
+    platform: "Telegram @stwags",
+    verified: true
   }
 ];
 
@@ -47,30 +51,48 @@ const TestimonialCard = ({ testimonial, isActive }: { testimonial: any, isActive
       initial={{ opacity: 0.5, y: 20 }}
       animate={{ opacity: isActive ? 1 : 0.7, y: isActive ? 0 : 10 }}
       transition={{ duration: 0.5 }}
-      className={`bg-zentex-gray-700/10 backdrop-blur-sm p-6 md:p-8 rounded-lg border ${
-        isActive ? "border-zentex-accent" : "border-zentex-gray-700/30"
-      } h-full flex flex-col`}
+      className={`bg-gradient-to-br from-zentex-gray-900/90 to-zentex-gray-800/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border ${
+        isActive ? "border-zentex-accent shadow-lg shadow-zentex-accent/10" : "border-zentex-gray-700/30"
+      } h-full flex flex-col relative overflow-hidden`}
     >
-      <div className="flex items-center mb-4">
-        <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-zentex-accent">
+      <div className="absolute top-0 right-0 w-40 h-40 bg-zentex-accent/5 rounded-full blur-3xl -z-10" />
+      
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-zentex-accent/50">
           <img
             src={testimonial.avatar}
-            alt={testimonial.name}
+            alt="Client"
             className="w-full h-full object-cover"
           />
         </div>
         <div>
-          <h4 className="font-bold">{testimonial.name}</h4>
+          <h4 className="font-bold text-lg">{testimonial.name}</h4>
           <p className="text-zentex-gray-400 text-sm">{testimonial.role}</p>
         </div>
       </div>
 
-      <div className="mt-2 mb-4 text-zentex-gray-300 flex-grow">
+      <div className="mt-2 mb-6 text-zentex-gray-300 flex-grow font-light leading-relaxed">
         "{testimonial.content}"
       </div>
 
-      <div className="flex items-center justify-between mt-auto pt-4 border-t border-zentex-gray-700/20">
-        <span className="text-zentex-accent text-sm">{testimonial.platform}</span>
+      <div className="flex items-center justify-between pt-4 border-t border-zentex-gray-700/20">
+        <div className="flex items-center gap-2">
+          <span className="text-zentex-accent text-sm">{testimonial.platform}</span>
+          {testimonial.verified && (
+            <svg 
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-zentex-accent"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          )}
+        </div>
         <div className="flex items-center">
           {[1, 2, 3, 4, 5].map((star) => (
             <svg
