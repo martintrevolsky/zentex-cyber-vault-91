@@ -10,10 +10,10 @@ const AboutSection = () => {
   });
 
   const statItems = [
-    { value: "5+", label: "Years Experience" },
-    { value: "1000+", label: "Accounts Recovered" },
-    { value: "24/7", label: "Support" },
-    { value: "100%", label: "Success Rate" },
+    { value: "5+", label: "Years Experience", icon: "⚡" },
+    { value: "1000+", label: "Accounts Recovered", icon: "🔒" },
+    { value: "24/7", label: "Support", icon: "💬" },
+    { value: "100%", label: "Success Rate", icon: "✨" },
   ];
 
   return (
@@ -22,34 +22,37 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
-            <h2 className="text-zentex-accent uppercase text-sm md:text-base tracking-widest mb-3">
+            <h2 className="font-display text-zentex-accent uppercase text-sm md:text-base tracking-[0.2em] mb-3">
               About Zentex
             </h2>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              The Premier Account Specialist in the Industry
+            <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              The Premier Account
+              <br />
+              <span className="bg-gradient-to-r from-zentex-white via-zentex-accent to-zentex-white bg-clip-text text-transparent animate-text-shimmer">
+                Recovery Specialist
+              </span>
             </h3>
-            <p className="text-zentex-gray-300 mb-6">
-              Zentex is a top-tier specialist in social media account services, 
-              focusing on Instagram and Facebook platforms. With years of experience 
-              in cyber security and platform policies, Zentex has developed proprietary 
-              methods to provide both account recovery and specialized account management.
-            </p>
-            <p className="text-zentex-gray-300 mb-8">
-              Our approach combines technical expertise with an in-depth understanding of 
-              platform algorithms and security systems. We operate with precision, 
-              discretion, and a commitment to delivering results when others can't.
+            <p className="text-zentex-gray-300 mb-6 font-mono leading-relaxed">
+              Zentex is the industry leader in social media account services, 
+              specializing in Instagram and Facebook platforms. Our proprietary 
+              methods combine technical expertise with platform-specific knowledge.
             </p>
             
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {statItems.map((stat, index) => (
-                <div key={index} className="text-center p-4 bg-zentex-gray-700/10 backdrop-blur-sm rounded-lg">
-                  <div className="text-2xl md:text-3xl font-bold text-zentex-white">
+                <motion.div 
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-4 glass-panel rounded-lg cyber-border"
+                >
+                  <div className="text-3xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl md:text-3xl font-bold font-display text-zentex-white">
                     {stat.value}
                   </div>
-                  <div className="text-zentex-gray-400 text-sm">
+                  <div className="text-zentex-gray-400 text-sm font-mono">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

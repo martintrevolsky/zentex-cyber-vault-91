@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -175,7 +177,7 @@
 }
 
 .glass-panel {
-  @apply bg-zentex-black bg-opacity-50 backdrop-blur-lg border border-white/10;
+  @apply bg-zentex-black/50 backdrop-blur-lg border border-zentex-accent/10;
 }
 
 /* Page transitions */
@@ -241,5 +243,36 @@
   } 
   40% { 
     transform: scale(1.0);
+  }
+}
+
+.animate-text-shimmer {
+  background-image: linear-gradient(
+    -20deg,
+    #ffffff 0%,
+    #0066ff 50%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s linear infinite;
+}
+
+.animate-border-flash {
+  animation: border-flash 2s linear infinite;
+}
+
+.cyber-border {
+  @apply relative;
+  &::before {
+    content: '';
+    @apply absolute -inset-[1px] bg-gradient-to-r from-zentex-accent via-zentex-white to-zentex-accent rounded-lg opacity-50 blur-sm transition-opacity duration-300;
+  }
+  &:hover::before {
+    @apply opacity-100;
   }
 }

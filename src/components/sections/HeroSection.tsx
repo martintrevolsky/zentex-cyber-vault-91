@@ -21,7 +21,7 @@ const HeroSection = () => {
     <section id="hero" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       <HeroScene />
       
-      <div className="absolute inset-0 bg-zentex-black/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-zentex-black/80 via-zentex-black/50 to-zentex-black/80 z-10" />
       
       <div className="container mx-auto px-4 md:px-6 z-20 text-center">
         <motion.div
@@ -35,9 +35,9 @@ const HeroSection = () => {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="text-zentex-accent uppercase text-sm md:text-base tracking-widest mb-3"
+            className="font-display text-zentex-accent uppercase text-sm md:text-base tracking-[0.2em] mb-3 animate-pulse"
           >
-            Cyber Security Services
+            Elite Security Services
           </motion.h2>
           
           <motion.h1
@@ -45,11 +45,13 @@ const HeroSection = () => {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
           >
             PROFESSIONAL ACCOUNT
             <br />
-            <span className="text-gradient">MANAGEMENT SERVICES</span>
+            <span className="bg-gradient-to-r from-zentex-white via-zentex-accent to-zentex-white bg-clip-text text-transparent animate-text-shimmer">
+              MANAGEMENT SERVICES
+            </span>
           </motion.h1>
           
           <motion.p
@@ -57,9 +59,9 @@ const HeroSection = () => {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="text-zentex-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10"
+            className="text-zentex-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-mono"
           >
-            Elite social media account recovery, unbanning, and professional services by Zentex.
+            Account Recovery • Security Enhancement • Strategic Management
           </motion.p>
           
           <motion.div
@@ -73,16 +75,16 @@ const HeroSection = () => {
               href="#services"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-zentex-white text-zentex-black font-medium rounded hover:bg-zentex-gray-100 transition-colors"
+              className="px-8 py-3 bg-zentex-accent text-zentex-white font-medium rounded hover:bg-zentex-accent/80 transition-all duration-300 shadow-lg shadow-zentex-accent/20 font-display tracking-wider"
             >
-              Our Services
+              View Services
             </motion.a>
             
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 border border-zentex-white text-zentex-white font-medium rounded hover:bg-zentex-white/10 transition-colors"
+              className="px-8 py-3 border border-zentex-accent text-zentex-white font-medium rounded hover:bg-zentex-accent/10 transition-all duration-300 animate-border-flash font-display tracking-wider"
             >
               Contact Now
             </motion.a>
