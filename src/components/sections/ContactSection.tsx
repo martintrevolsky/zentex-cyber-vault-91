@@ -1,11 +1,10 @@
-
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SectionTransition from "../common/SectionTransition";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
-import { Telegram, Mail, MessageSquare } from "lucide-react";
+import { MessageSquare, Mail, ExternalLink } from "lucide-react";
 
 const ContactSection = () => {
   const [name, setName] = useState("");
@@ -63,7 +62,7 @@ const ContactSection = () => {
     {
       name: "Telegram",
       value: "@zentex_official",
-      icon: <Telegram className="w-5 h-5" />,
+      icon: <ExternalLink className="w-5 h-5" />,
       link: "https://t.me/zentex_official"
     },
     {
