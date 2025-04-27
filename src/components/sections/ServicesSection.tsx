@@ -53,7 +53,7 @@ const ServicesSection = () => {
       title: "Instagram Account Recovery",
       description: "Expert service to regain access to banned or suspended Instagram accounts with a high success rate.",
       icon: <span className="text-2xl">🔓</span>,
-      price: "$299",
+      price: "xxxx$",
       popular: true,
       delay: 0.1
     },
@@ -61,21 +61,21 @@ const ServicesSection = () => {
       title: "Facebook Unban Service",
       description: "Specialized Facebook account recovery for personal profiles and business pages facing restrictions.",
       icon: <span className="text-2xl">🛡️</span>,
-      price: "$349",
+      price: "xxxx$",
       delay: 0.2
     },
     {
       title: "Account Banning Service",
       description: "Premium service to target specific accounts for removal using proprietary methods.",
       icon: <span className="text-2xl">🎯</span>,
-      price: "$499",
+      price: "xxxx$",
       delay: 0.3
     },
     {
       title: "Platform Security Audit",
       description: "Comprehensive audit of your social media accounts to identify and patch security vulnerabilities.",
       icon: <span className="text-2xl">🔍</span>,
-      price: "$199",
+      price: "xx$",
       delay: 0.4
     },
   ];
