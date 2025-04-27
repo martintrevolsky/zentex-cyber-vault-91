@@ -3,9 +3,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { HelmetProvider } from "react-helmet-async";
 
 // Pages
 import Home from "./pages/Home";
@@ -16,6 +17,20 @@ import Cursor from "./components/common/Cursor";
 import Loader from "./components/common/Loader";
 
 const queryClient = new QueryClient();
+
+// Route wrapper with page transitions
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,25 +46,24 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AnimatePresence>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <>
-              <Cursor />
-              <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </BrowserRouter>
-            </>
-          )}
-        </AnimatePresence>
-      </TooltipProvider>
+      <HelmetProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <Cursor />
+                <BrowserRouter>
+                  <AnimatedRoutes />
+                </BrowserRouter>
+              </>
+            )}
+          </AnimatePresence>
+        </TooltipProvider>
+      </HelmetProvider>
     </QueryClientProvider>
   );
 };

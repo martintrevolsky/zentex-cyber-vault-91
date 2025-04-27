@@ -3,5 +3,12 @@
 User-agent: *
 Allow: /
 
+# Block specific paths
+Disallow: /api/
+Disallow: /admin/
+
+# Crawl delay
+Crawl-delay: 10
+
 # Sitemap
 Sitemap: https://zentex-cyber.com/sitemap.xml
