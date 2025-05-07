@@ -65,8 +65,8 @@ const ServicesSection = () => {
       delay: 0.2
     },
     {
-      title: "Account Banning Service",
-      description: "Premium service to target specific accounts for removal using proprietary methods.",
+      title: "Account Takedown Service",
+      description: "Premium service to takedown specific accounts for removal using proprietary methods.(100% based on tos)",
       icon: <span className="text-2xl">🎯</span>,
       price: "xxxx$",
       delay: 0.3
