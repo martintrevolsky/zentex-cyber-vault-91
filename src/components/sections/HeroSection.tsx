@@ -61,7 +61,7 @@ const HeroSection = () => {
             animate="visible"
             className="text-zentex-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-mono"
           >
-            Account Recovery • Security Enhancement • Strategic Management
+            Account Recovery • Security Enhancement • Tos Based Takedowns
           </motion.p>
           
           <motion.div
